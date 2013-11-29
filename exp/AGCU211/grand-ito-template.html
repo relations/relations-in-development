@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>单个STR基因座常见血缘关系PI计算</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="../../img/relations-icon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../../img/relations-icon.ico" type="image/x-icon"/>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="print">
+    <style type="text/css">
+        th {
+            width: 12.5%;
+            text-align: center;
+        }
+
+        td {
+            width: 12.5%;
+            text-align: center;
+        }
+
+        .container {
+            width: auto;
+            max-width: 1000px;
+        }
+    </style>
+<body>
+<div class="container">
+
+    <div style="text-align:center;">
+        <h2>单个STR基因座常见血缘关系PI计算</h2>
+    </div>
+    <br>
+
+    <div id="date"></div>
+    <br>
+
+    <div>
+        <table id="table" class="table table-bordered">
+            <thead>
+            <tr>
+                <th>基因座</th>
+                <th>A1</th>
+                <th>A2</th>
+                <th>B1</th>
+                <th>B2</th>
+                <th>PI</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div style="text-align:center; margin-top:5px;">
+        <span><b>基因座的个数:</b></span>
+        <span id="itoRowCount" style="margin-right:20px;">0</span>
+        <span><b>CPI:</b></span>
+        <span id="CPI" style="margin-right:20px;">0</span>
+        <span><b>RCP:</b></span>
+        <span id="RCP" style="margin-right:20px;">0</span>
+    </div>
+    <a href="../../help/how-to-copy-data-to-word.html" target="_blank">帮助：如何拷贝数据到Word中？</a>
+</div>
+<script type="text/javascript">
+    var myDate = new Date();
+    var year = myDate.getFullYear();   //获取完整的年份(4位,1970-????)
+    var month = myDate.getMonth();      //获取当前月份(0-11,0代表1月)
+    var day = myDate.getDate();       //获取当前日(1-31)
+    var date = document.getElementById("date");
+    date.innerHTML = "日期：" + year + "年" + (month + 1) + "月" + day + "日";
+
+    loadTableFromCookie();
+
+    function getCookie(objName) {
+        var arrStr = document.cookie.split("; ");
+        for (var i = 0; i < arrStr.length; i++) {
+            var temp = arrStr[i].split("=");
+            if (temp[0] == objName) return unescape(temp[1]);
+        }
+    }
+
+    function loadTableFromCookie() {
+        var linesCount = getCookie("itoLinesCount");
+        for (var i = 1; i <= Number(linesCount); i++) {
+            var locus = getCookie("itoLocusValue_" + i);
+            var A1 = getCookie("itoA1_" + i);
+            var A2 = getCookie("itoA2_" + i);
+            var B1 = getCookie("itoB1_" + i);
+            var B2 = getCookie("itoB2_" + i);
+            var pi = getCookie("itoPI_" + i);
+            if (A1 == null && A2 == null && B1 == null && B2 == null) {
+
+            } else {
+                generateTable(locus, A1, A2, B1, B2, pi);
+            }
+        }
+        ;
+        var itoRowCount = getCookie("itoRowCount");
+        var cpi = getCookie("itoCPI");
+        var rcp = getCookie("itoRCP");
+        var CPI = document.getElementById("CPI");
+        CPI.innerHTML = cpi;
+        var RCP = document.getElementById("RCP");
+        RCP.innerHTML = rcp
+        var itoRowCount = document.getElementById("itoRowCount");
+        itoRowCount.innerHTML = itoRowCount;
+    }
+
+    function generateTable(locus, A1, A2, B1, B2, PI) {
+        var itoTable = itoFindObj("table", document);
+        var newTR = itoTable.insertRow(itoTable.rows.length);
+        var newLocus = newTR.insertCell(0);
+        newLocus.innerHTML = locus;
+        var newA1 = newTR.insertCell(1);
+        if (A1 == 999) {
+            A1 = "others";
+        }
+        newA1.innerHTML = A1;
+        var newA2 = newTR.insertCell(2);
+        if (A2 == 999) {
+            A2 = "others";
+        }
+        newA2.innerHTML = A2;
+        var newB1 = newTR.insertCell(3);
+        if (B1 == 999) {
+            B1 = "others";
+        }
+        newB1.innerHTML = B1;
+        var newB2 = newTR.insertCell(4);
+        if (B2 == 999) {
+            B2 = "others";
+        }
+        newB2.innerHTML = B2;
+        var newPi = newTR.insertCell(5);
+        newPi.innerHTML = PI;
+    }
+
+    function itoFindObj(theObj, theDoc) {
+        var p, i, foundObj;
+        if (!theDoc) theDoc = document;
+        if ((p = theObj.indexOf("?")) > 0 && parent.frames.length) {
+            theDoc = parent.frames[theObj.substring(p + 1)].document;
+            theObj = theObj.substring(0, p);
+        }
+        if (!(foundObj = theDoc[theObj]) && theDoc.all) foundObj = theDoc.all[theObj];
+        for (i = 0; !foundObj && i < theDoc.forms.length; i++) foundObj = theDoc.forms[i][theObj];
+        for (i = 0; !foundObj && theDoc.layers && i < theDoc.layers.length; i++) foundObj = itoFindObj(theObj, theDoc.layers[i].document);
+        if (!foundObj && document.getElementById) foundObj = document.getElementById(theObj);
+        return foundObj;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>没有检测母亲的共显性遗传标记计算父权指数计算</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="../../img/relations-icon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../../img/relations-icon.ico" type="image/x-icon"/>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="print">
+    <style type="text/css">
+        th {
+            width: 12.5%;
+            text-align: center;
+        }
+
+        td {
+            width: 12.5%;
+            text-align: center;
+        }
+
+        .container {
+            width: auto;
+            max-width: 1000px;
+        }
+    </style>
+<body>
+<div class="container">
+
+    <div style="text-align:center;">
+        <h2>没有检测母亲的共显性遗传标记计算父权指数计算</h2>
+    </div>
+    <br>
+
+    <div id="date"></div>
+    <br>
+
+    <div>
+        <table id="table" class="table table-bordered">
+            <thead>
+            <tr>
+                <th>基因座</th>
+                <th>AF1</th>
+                <th>AF2</th>
+                <th>C1</th>
+                <th>C2</th>
+                <th>PI</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div style="text-align:center; margin-top:5px;">
+        <span><b>基因座的个数:</b></span>
+        <span id="piSingleParentRowCount" style="margin-right:20px;">0</span>
+        <span><b>CPI:</b></span>
+        <span id="CPI" style="margin-right:20px;">0</span>
+        <span><b>RCP:</b></span>
+        <span id="RCP" style="margin-right:20px;">0</span>
+    </div>
+    <a href="../../help/how-to-copy-data-to-word.html" target="_blank">帮助：如何拷贝数据到Word中？</a>
+</div>
+<script type="text/javascript">
+    var myDate = new Date();
+    var year = myDate.getFullYear();   //获取完整的年份(4位,1970-????)
+    var month = myDate.getMonth();      //获取当前月份(0-11,0代表1月)
+    var day = myDate.getDate();       //获取当前日(1-31)
+    var date = document.getElementById("date");
+    date.innerHTML = "日期：" + year + "年" + (month + 1) + "月" + day + "日";
+
+    loadTableFromCookie();
+
+    function getCookie(objName) {
+        var arrStr = document.cookie.split("; ");
+        for (var i = 0; i < arrStr.length; i++) {
+            var temp = arrStr[i].split("=");
+            if (temp[0] == objName) return unescape(temp[1]);
+        }
+    }
+
+    function loadTableFromCookie() {
+        var linesCount = getCookie("piSingleParentLinesCount");
+        for (var i = 1; i <= Number(linesCount); i++) {
+            var locus = getCookie("piSingleParentLocusValue_" + i);
+            var AF1 = getCookie("piSingleParentAF1_" + i);
+            var AF2 = getCookie("piSingleParentAF2_" + i);
+            var C1 = getCookie("piSingleParentC1_" + i);
+            var C2 = getCookie("piSingleParentC2_" + i);
+            var pi = getCookie("piSingleParentPI_" + i);
+            if (AF1 == null && AF2 == null && C1 == null && C2 == null) {
+
+            } else {
+                generateTable(locus, AF1, AF2, C1, C2, pi);
+            }
+        }
+        ;
+        var piSingleParentRowCount = getCookie("piSingleParentRowCount");
+        var cpi = getCookie("piSingleParentCPI");
+        var rcp = getCookie("piSingleParentRCP");
+        var CPI = document.getElementById("CPI");
+        CPI.innerHTML = cpi;
+        var RCP = document.getElementById("RCP");
+        RCP.innerHTML = rcp
+        var PISingleParentRowCount = document.getElementById("piSingleParentRowCount");
+        PISingleParentRowCount.innerHTML = piSingleParentRowCount;
+    }
+
+    function generateTable(locus, AF1, AF2, C1, C2, PI) {
+        var piSingleParentTable = piSingleParentFindObj("table", document);
+        var newTR = piSingleParentTable.insertRow(piSingleParentTable.rows.length);
+        var newLocus = newTR.insertCell(0);
+        newLocus.innerHTML = locus;
+        var newAF1 = newTR.insertCell(1);
+        if (AF1 == 999) {
+            AF1 = "others";
+        }
+        newAF1.innerHTML = AF1;
+        var newAF2 = newTR.insertCell(2);
+        if (AF2 == 999) {
+            AF2 = "others";
+        }
+        newAF2.innerHTML = AF2;
+        var newC1 = newTR.insertCell(3);
+        if (C1 == 999) {
+            C1 = "others";
+        }
+        newC1.innerHTML = C1;
+        var newC2 = newTR.insertCell(4);
+        if (C2 == 999) {
+            C2 = "others";
+        }
+        newC2.innerHTML = C2;
+        var newPi = newTR.insertCell(5);
+        newPi.innerHTML = PI;
+    }
+
+    function piSingleParentFindObj(theObj, theDoc) {
+        var p, i, foundObj;
+        if (!theDoc) theDoc = document;
+        if ((p = theObj.indexOf("?")) > 0 && parent.frames.length) {
+            theDoc = parent.frames[theObj.substring(p + 1)].document;
+            theObj = theObj.substring(0, p);
+        }
+        if (!(foundObj = theDoc[theObj]) && theDoc.all) foundObj = theDoc.all[theObj];
+        for (i = 0; !foundObj && i < theDoc.forms.length; i++) foundObj = theDoc.forms[i][theObj];
+        for (i = 0; !foundObj && theDoc.layers && i < theDoc.layers.length; i++) foundObj = piSingleParentFindObj(theObj, theDoc.layers[i].document);
+        if (!foundObj && document.getElementById) foundObj = document.getElementById(theObj);
+        return foundObj;
+    }
+</script>
+</body>
+</html>

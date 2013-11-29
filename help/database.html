@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relations - Blood relation between you and another person</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<link rel="icon" href="../img/relations-icon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="../img/relations-icon.ico" type="image/x-icon"/>
+<style type="text/css">
+    html, body {
+        height: 100%;
+    }
+
+    #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -60px;
+    }
+
+    #push, #footer {
+        height: 40px;
+        text-align: center;
+    }
+
+    @media (max-width: 767px) {
+        #footer {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    .container {
+        width: auto;
+        max-width: 1000px;
+    }
+
+    .container .credit {
+        margin: 20px 0;
+    }
+</style>
+
+<body onload="loadTableFromCookie()">
+<div id="wrap">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="../index.html"
+                   style="font-family: 'Oleo Script Swash Caps', cursive;">Relations</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                开始 <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">父权指数</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a tabindex="-1" href="#">双亲</a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="../exp/AGCU_EX22/pi-parents.html">AGCU_EX22</a>
+                                                </li>
+                                                <li>
+                                                    <a href="../exp/AGCU211/pi-parents.html">AGCU_EX22</a>
+                                                </li>
+                                                <li>
+                                                    <a href="../exp/GlobalFiler/pi-parents.html">GlobalFiler</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a tabindex="-1" href="#">单亲</a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="../exp/AGCU_EX22/pi-single-parent.html">AGCU_EX22</a>
+                                                </li>
+                                                <li>
+                                                    <a href="../exp/AGCU211/pi-single-parent.html">AGCU211</a>
+                                                </li>
+                                                <li>
+                                                    <a href="../exp/GlobalFiler/pi-single-parent.html">GlobalFiler</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">ITO</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a tabindex="-1" href="#">同胞/祖孙</a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="../exp/AGCU_EX22/grand-ito.html">AGCU_EX22</a>
+                                                </li>
+                                                <li>
+                                                    <a href="../exp/AGCU211/grand-ito.html">AGCU_EX22</a>
+                                                </li>
+                                                <li>
+                                                    <a href="../exp/GlobalFiler/grand-ito.html">GlobalFiler</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a tabindex="-1" href="#">半同胞/叔侄</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">关于项目</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="how-to-use.html">如何使用</a>
+                                        </li>
+                                        <li>
+                                            <a href="formula.html">公式</a>
+                                        </li>
+                                        <li>
+                                            <a href="database.html">数据库</a>
+                                        </li>
+                                        <li>
+                                            <a href="developer.html">开发</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="how-to-copy-data-to-word.html">数据拷贝到word</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">数据库</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse --> </div>
+        </div>
+    </div>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <table class="table table-striped table-bordered" id="database">
+            <caption>
+                <b>AGCU_EX22</b>
+            </caption>
+            <tbody>
+            <tr>
+                <td style="width:16.666%;"><a href="../xml/AGCU_EX22/D3S1358.xml" target="_blank">D3S1358</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU_EX22/D13S317.xml" target="_blank">D13S317</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU_EX22/D7S820.xml" target="_blank">D7S820</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU_EX22/D16S539.xml" target="_blank">D16S539</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU_EX22/PentaE.xml" target="_blank">Penta E</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU_EX22/D2S441.xml" target="_blank">D2S441</a></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU_EX22/TPOX.xml" target="_blank">TPOX</a></td>
+                <td><a href="../xml/AGCU_EX22/TH01.xml" target="_blank">TH01</a></td>
+                <td><a href="../xml/AGCU_EX22/D2S1338.xml" target="_blank">D2S1338</a></td>
+                <td><a href="../xml/AGCU_EX22/CSF1PO.xml" target="_blank">CSF1PO</a></td>
+                <td><a href="../xml/AGCU_EX22/PentaD.xml" target="_blank">Penta D</a></td>
+                <td><a href="../xml/AGCU_EX22/D10S1248.xml" target="_blank">D10S1248</a></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU_EX22/D19S433.xml" target="_blank">D19S433</a></td>
+                <td><a href="../xml/AGCU_EX22/vWA.xml" target="_blank">vWA</a></td>
+                <td><a href="../xml/AGCU_EX22/D21S11.xml" target="_blank">D21S11</a></td>
+                <td><a href="../xml/AGCU_EX22/D18S51.xml" target="_blank">D18S51</a></td>
+                <td><a href="../xml/AGCU_EX22/D6S1043.xml" target="_blank">D6S1043</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU_EX22/D8S1179.xml" target="_blank">D8S1179</a></td>
+                <td><a href="../xml/AGCU_EX22/D5S818.xml" target="_blank">D5S818</a></td>
+                <td><a href="../xml/AGCU_EX22/D12S391.xml" target="_blank">D12S391</a></td>
+                <td><a href="../xml/AGCU_EX22/FGA.xml" target="_blank">FGA</a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped table-bordered" id="database2">
+            <caption>
+                <b>AGCU211</b>
+            </caption>
+            <tbody>
+            <tr>
+                <td style="width:16.666%;"><a href="../xml/AGCU211/D1GATA113.xml" target="_blank">D1GATA113</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU211/D1S1627.xml" target="_blank">D1S1627</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU211/D1S1677.xml" target="_blank">D1S1677</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU211/D2S441.xml" target="_blank">D2S441</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU211/D2S1776.xml" target="_blank">D2S1776</a></td>
+                <td style="width:16.666%;"><a href="../xml/AGCU211/D3S4529.xml" target="_blank">D3S4529</a></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU211/D4S2408.xml" target="_blank">D4S2408</a></td>
+                <td><a href="../xml/AGCU211/D5S2500.xml" target="_blank">D5S2500</a></td>
+                <td><a href="../xml/AGCU211/D6S1017.xml" target="_blank">D6S1017</a></td>
+                <td><a href="../xml/AGCU211/D6S474.xml" target="_blank">D6S474</a></td>
+                <td><a href="../xml/AGCU211/D9S1122.xml" target="_blank">D9S1122</a></td>
+                <td><a href="../xml/AGCU211/D10S1248.xml" target="_blank">D10S1248</a></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU211/D10S1435.xml" target="_blank">D10S1435</a></td>
+                <td><a href="../xml/AGCU211/D11S4463.xml" target="_blank">D11S4463</a></td>
+                <td><a href="../xml/AGCU211/D12ATA63.xml" target="_blank">D12ATA63</a></td>
+                <td><a href="../xml/AGCU211/D14S1434.xml" target="_blank">D14S1434</a></td>
+                <td><a href="../xml/AGCU211/D18S853.xml" target="_blank">D18S853</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU211/D19S433.xml" target="_blank">D19S433</a></td>
+                <td><a href="../xml/AGCU211/D20S482.xml" target="_blank">D20S482</a></td>
+                <td><a href="../xml/AGCU211/D12S391.xml" target="_blank">D12S391</a></td>
+                <td><a href="../xml/AGCU211/D14S1434.xml" target="_blank">D14S1434</a></td>
+                <td><a href="../xml/AGCU211/D17S1301.xml" target="_blank">D17S1301</a></td>
+                <td><a href="../xml/AGCU211/D18S853.xml" target="_blank">D18S853</a></td>
+            </tr>
+            <tr>
+                <td><a href="../xml/AGCU211/D19S433.xml" target="_blank">D19S433</a></td>
+                <td><a href="../xml/AGCU211/D20S482.xml" target="_blank">D20S482</a></td>
+                <td><a href="../xml/AGCU211/D22S1045.xml" target="_blank">D22S1045</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="push"></div>
+<div id="footer">
+</div>
+<script type="text/javascript" src="../js/bootstrap/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#database").fadeIn(200);
+    });
+</script>
+<script type="text/javascript" src="../js/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
